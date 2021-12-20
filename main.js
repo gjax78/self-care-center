@@ -61,13 +61,8 @@ var mantras = [
   "I am the sky, the rest is weather."
 ];
 
-usedQuotes = [];
-
 
 // functions and event handlers go here👇
-var currentMantra;
-var currentAffirmation;
-
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
