@@ -16,6 +16,19 @@ var viewCustomMessage = document.querySelector('.view-custom-message');
 var form = document.querySelector(".form");
 var p = document.querySelector('p');
 
+//add to Favorites
+var addToFavoritesButton = document.querySelector('.add-to-favorites')
+var viewFavoritesButton = document.querySelector('.view-favorites')
+// var favoriteMessagesGrid = document.querySelector('.favorite-messages-grid');
+
+
+var quoteArea = document.querySelector('.quote-area');
+var favoritesArea = document.querySelector('.favorite-area');
+var mainPage = document.querySelector('.main-page');
+var viewFavoritesPage = document.querySelector('.view-favorites-page');
+var backToMainPageButton = document.querySelector('.back');
+var orderedList = document.querySelector('.saved-quotes')
+
 // event listeners go here👇
 receiveMessageButton.addEventListener('click', function(){
   radioSelectionChoice()
@@ -23,6 +36,8 @@ receiveMessageButton.addEventListener('click', function(){
 });
 addMessageButton.addEventListener('click', showForm);
 submitButton.addEventListener('click', displayCustomMessage);
+addToFavoritesButton.addEventListener('click', addToFavoriteList);
+viewFavoritesButton.addEventListener('click', viewFavorites);
 
 
 //data👇
@@ -60,6 +75,9 @@ var mantras = [
   "I am the sky, the rest is weather."
 ];
 
+var favoriteMessages = [];
+
+
 // functions and event handlers go here👇
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -74,6 +92,8 @@ function radioSelectionChoice() {
   } else {
     alert('Please select a message type')
     customMessage.value = "";
+    addToFavoritesButton.classList.add('hidden');
+    viewFavoritesButton.classList.add("hidden");
     meditateGuy.classList.remove("hidden");
   }
 };
@@ -83,6 +103,8 @@ function displayMessage() {
   message.classList.remove("hidden");
   viewCustomMessage.classList.add("hidden");
   form.classList.add("hidden");
+  addToFavoritesButton.classList.remove('hidden');
+  viewFavoritesButton.classList.remove("hidden");
 };
 
 function showForm() {
@@ -97,5 +119,33 @@ function displayCustomMessage() {
   radioSelectionChoice();
   viewCustomMessage.classList.remove('hidden');
   form.classList.add('hidden');
+  addToFavoritesButton.classList.remove('hidden');
+  viewFavoritesButton.classList.remove("hidden");
   viewCustomMessage.innerText = customMessage.value;
 };
+
+function hideMainPage() {
+  mainPage.classList.add('hidden');
+  viewFavoritesPage.classList.remove('hidden');
+}
+
+// function showMainPage() {
+//   mainPage.classList.remove('hidden');
+//   viewFavoritesPage.classList.add('hidden');
+// }
+
+function viewFavorites() {
+  hideMainPage();
+  viewFavoritesPage.classList.remove('hidden');
+  for (var i =0; i < favoriteMessages.length; i++) {
+    orderedList.innerHTML += "<li>" + favoriteMessages[i]+ "</li>";
+  }
+}
+
+function addToFavoriteList() {
+  event.preventDefault();
+  if (!favoriteMessages.includes(message.innerHTML))
+  favoriteMessages.push(message.innerText)
+  // affirmations = new Message(currentQuote)
+  // favoriteMessages.push(newQuote.innerText);
+}
