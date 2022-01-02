@@ -213,5 +213,6 @@ function addToFavoriteList() {
 }
 
 function deleteMessage() {
-  orderedList.classList.add('hidden')
+  favoriteMessages.splice(0,1)
+  orderedList.innerText = ''
 }
