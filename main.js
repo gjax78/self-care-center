@@ -196,6 +196,9 @@ function viewFavorites() {
   viewFavoritesPage.classList.remove('hidden');
   for (var i = 0; i < favoriteMessages.length; i++) {
     orderedList.innerHTML += "<li>" + favoriteMessages[i]+ "</li>";
+    if (message.innerText === favoriteMessages[i]) {
+      favoriteMessages.splice(i, 1)
+    }
   }
 }
 
@@ -204,4 +207,3 @@ function addToFavoriteList() {
   if (!favoriteMessages.includes(message.innerText))
   favoriteMessages.push(message.innerText)
 }
-
