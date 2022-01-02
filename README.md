@@ -67,6 +67,10 @@ After they’ve seen them all, an alert appears that they will now start seeing 
 
 ![gif](https://user-images.githubusercontent.com/88151743/146812209-241530bc-6cb1-4e93-8a44-d69a05f54f4c.gif)
 
-8. Users should be able to navigate back to the main page by clicking a button:
+8. Users are able to navigate back to the main page by clicking a button:
 
 ![gif](https://user-images.githubusercontent.com/88151743/146812494-197a6b0b-cc98-4e1f-9cca-57e4e212b400.gif)
+
+9. Users are able to remove a message from their list of favorites, by clicking a button:
+
+![gif](https://user-images.githubusercontent.com/88151743/147888956-e5c87138-8d97-4f8a-84a2-f2be3a18431c.gif)
